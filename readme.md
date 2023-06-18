@@ -2,7 +2,6 @@
 
 ```
 myproject/
-    ...
     app1/
         views.py
         __init__.py
