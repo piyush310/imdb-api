@@ -1,0 +1,3 @@
+from watchlist.serializers.stream import StreamPlatformSerializer
+from watchlist.serializers.watchlist import WatchListSerializer
+from watchlist.serializers.review import ReviewSerializer

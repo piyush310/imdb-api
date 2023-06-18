@@ -1,8 +1,9 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from watchlist.models.watchlist import WatchList
-from watchlist.api.serializers import WatchListSerializer
+from watchlist.models import WatchList
+from watchlist.serializers import WatchListSerializer
+
 
 class WatchListAV(APIView):
     def get(self, request):
@@ -34,8 +35,7 @@ class WatchDetailAV(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
-        return Response(serializer.errors,
-                        status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, id):
         movie = WatchList.objects.get(id=id)

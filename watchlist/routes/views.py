@@ -5,7 +5,6 @@
 # from watchlist.models import WatchList, StreamPlaform
 # from watchlist.api.serializers import WatchListSerializer, StreamPlatformSerializer
 
-
 # class StreamPlatformListAV(APIView):
 #     def get(self, request):
 #         movies = StreamPlaform.objects.all()
@@ -18,7 +17,6 @@
 #             serializer.save()
 #             return Response(serializer.data)
 #         return Response(serializer.errors)
-
 
 # class StreamPlatformDetailAV(APIView):
 #     def get(self, request, id):
@@ -45,7 +43,6 @@
 #         content = {'please move along': 'nothing to see here'}
 #         return Response(content, status=status.HTTP_204_NO_CONTENT)
 
-
 # class WatchListAV(APIView):
 #     def get(self, request):
 #         movies = WatchList.objects.all()
@@ -58,7 +55,6 @@
 #             serializer.save()
 #             return Response(serializer.data)
 #         return Response(serializer.errors)
-
 
 # class WatchDetailAV(APIView):
 #     def get(self, request, id):
@@ -84,7 +80,6 @@
 #         movie.delete()
 #         content = {'please move along': 'nothing to see here'}
 #         return Response(content, status=status.HTTP_204_NO_CONTENT)
-
 
 # @api_view(["GET", "POST"])
 # def movie_list(request):

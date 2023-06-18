@@ -1,19 +1,20 @@
-from rest_framework import serializers
-from watchlist.models.stream import StreamPlaform
-from watchlist.models.watchlist import WatchList
+# from rest_framework import serializers
+# from watchlist.models.stream import StreamPlaform
+# from watchlist.models.watchlist import WatchList
 
+# hyperlink serializer
+# class StreamPlatformSerializer(serializers.ModelSerializer):
+#     # watchlist = WatchListSerializer(many=True, read_only = True)
 
-class WatchListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = WatchList
-        fields = "__all__"
+#     # return only __str__
+#     # watchlist = serializers.StringRelatedField(many=True, read_only=True)
 
-
-class StreamPlatformSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = StreamPlaform
-        fields = "__all__"
-
+#     watchlist = serializers.HyperlinkedRelatedField(
+#         many=True, read_only=True, view_name="movie-detail",
+#         lookup_field="id")
+#     class Meta:
+#         model = StreamPlaform
+#         fields = "__all__"
 
 #ModelSerlializer
 # class MovieSerializer(serializers.ModelSerializer):

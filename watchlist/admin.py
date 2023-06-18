@@ -1,6 +1,6 @@
 from django.contrib import admin
-from watchlist.models.stream import StreamPlaform
-from watchlist.models.watchlist import WatchList
+from watchlist.models import StreamPlatform, WatchList, Review
 
 admin.site.register(WatchList)
-admin.site.register(StreamPlaform)
+admin.site.register(StreamPlatform)
+admin.site.register(Review)
