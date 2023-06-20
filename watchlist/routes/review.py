@@ -3,7 +3,8 @@ from watchlist.models import Review
 from watchlist.serializers import ReviewSerializer
 
 
-class ReviewList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
+class ReviewList(mixins.ListModelMixin, mixins.CreateModelMixin,
+                 generics.GenericAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 
@@ -13,7 +14,9 @@ class ReviewList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Generi
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
 
-class ReviewDetail(mixins.RetrieveModelMixin, mixins.DestroyModelMixin, mixins.UpdateModelMixin, generics.GenericAPIView):
+
+class ReviewDetail(mixins.RetrieveModelMixin, mixins.DestroyModelMixin,
+                   mixins.UpdateModelMixin, generics.GenericAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 
@@ -22,6 +25,6 @@ class ReviewDetail(mixins.RetrieveModelMixin, mixins.DestroyModelMixin, mixins.U
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
-    
+
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)

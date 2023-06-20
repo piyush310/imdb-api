@@ -3,7 +3,6 @@ from watchlist.models import WatchList
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
-
 class Review(models.Model):
     rating = models.PositiveIntegerField(
         validators=[MinValueValidator(1),
