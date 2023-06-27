@@ -1,74 +1,75 @@
-# IMDB API Clone With DRF
+# IMDb API Clone
 
-<b>🎥 Understanding REST API</b>
-<ul>
-    <li>https://towardsdatascience.com/introduction-to-rest-apis-90b5d9676004</li>
-</ul>
-<br>
+This is a clone of the IMDb (Internet Movie Database) API built using Django and Django REST Framework. It allows users to access movie and TV show information, including details about cast, crew, ratings, and more.
 
-<b>🎥 Basic Django Setup</b>
-<ul>
-    <li>https://www.djangoproject.com/</li>
-    <li>https://code.visualstudio.com/download</li>
-    <li>https://www.tabnine.com/</li>
-</ul>
-<br>
+## Features
 
-<b>🎥 DRF Introduction</b>
-<ul>
-    <li>https://www.django-rest-framework.org/</li>
-</ul>
-<br>
+- **Search**: Users can search for movies and TV shows using various criteria such as title, genre, year, etc.
+- **Movie Details**: Users can retrieve detailed information about a specific movie or TV show, including cast, crew, ratings, plot summary, and more.
+- **Top Rated**: Users can view the top-rated movies and TV shows based on user ratings.
+- **User Ratings**: Registered users can rate movies and TV shows, and their ratings will contribute to the overall rating for each title.
+- **Authentication**: User registration and authentication system is implemented to allow secure access to certain features such as rating movies.
 
-<b>🎥 Django Relationships</b>
-<ul>
-    <li>https://docs.djangoproject.com/en/3.1/topics/db/examples/</li>
-</ul>
-<br>
+## Technologies Used
 
-<b>🎥 Postman</b>
-<ul>
-    <li>https://www.postman.com/</li>
-    <li>https://www.postman.com/downloads/</li>
-</ul>
-<br>
+- Python 3.x
+- Django 3.x
+- Django REST Framework 3.x
+- MySQL (or any other database supported by Django)
 
-<b>🎥 Basic Authentication</b>
-<ul>
-    <li>https://www.base64encode.org/</li>
-    <li>https://www.toolsqa.com/postman/basic-authentication-in-postman/</li>
-</ul>
-<br>
+## Installation
 
-<b>🎥 JWT Authentication</b>
-<ul>
-<li>https://jwt.io/</li>
-<li>https://medium.com/devgorilla/how-to-log-out-when-using-jwt-a8c7823e8a6</li>
-<li>https://simpleisbetterthancomplex.com/tutorial/2018/12/19/how-to-use-jwt-authentication-with-django-rest-framework.html</li>
-<li>https://medium.com/django-rest/django-rest-framework-jwt-authentication-94bee36f2af8https://stackoverflow.com/questions/61547014/restful-uri-trailing-slash-or-no-trailing-slash</li>
-</ul>
-<br>
+1. Clone the repository:
 
-<b>🎥 Throttling Introduction</b>
-<ul>
-  <li>https://medium.com/analytics-vidhya/throttling-requests-with-django-rest-framework-for-different-http-methods-3ab0461044c</li>
-</ul>
-<br>
+   ```shell
+   git clone https://github.com/piyush310/imdb-api-clone.git
+   ```
 
-<b>🎥 Filtering, Searching, Ordering</b>
-<ul>
-  <li>https://django-filter.readthedocs.io/en/stable/</li>
-  <li>https://stackoverflow.com/a/36940373/7846238</li>
-</ul>
-<br>
+2. Create a virtual environment:
+   ```shell
+    python3 -m venv venv
+   ```
 
-<b>🎥 Browsable API Update</b>
-<ul>
-  <li>https://stackoverflow.com/questions/11898065/how-to-disable-admin-style-browsable-interface-of-django-rest-framework</li>
-</ul>
-<br>
+3. Activate the virtual environment:
+   ```shell
+    source venv/bin/activate
+   ```
 
-<b>🎥 Test Driven Development</b>
-<ul>
-  <li>https://medium.com/@ksarthak4ever/test-driven-development-tdd-in-django-and-django-rest-framework-drf-a889a8068cb7</li>
-</ul>
+4. Install the dependencies:
+   ```shell
+    pip install -r requirements.txt
+   ```
+
+5. Setup the database:
+
+- Update the database settings in watchmate/settings.py to match your database configuration.
+
+- Apply migrations:
+  ```shell
+   python manage.py migrate
+  ```
+6. Start the development server:
+  ```shell
+   python manage.py runserver
+  ```
+7. Access the API at 
+  ```shell
+    http://localhost:8000/docs
+    or
+    http://localhost:8000/redoc
+  ```
+
+## Contributing
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your fork.
+5. Submit a pull request detailing your changes.
+
+## Acknowledgements
+This project was inspired by the IMDb website and API.
+
+## Contact
+If you have any questions or suggestions, feel free to

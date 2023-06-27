@@ -1,17 +1,45 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from watchlist.models import StreamPlatform
+from watchlist.models import StreamPlatform as StreamPlatforms
 from watchlist.serializers import StreamPlatformSerializer
 from rest_framework import generics
+from rest_framework import viewsets
+from django.shortcuts import get_object_or_404
+
+
+class StreamPlatform(viewsets.ModelViewSet):
+    queryset = StreamPlatforms.objects.all()
+    serializer_class = StreamPlatformSerializer
+
+
+# class StreamPlatform(viewsets.ViewSet):
+# def list(self, request):
+#     queryset = StreamPlatforms.objects.all()
+#     serializer = StreamPlatformSerializer(queryset, many=True)
+#     return Response(serializer.data)
+
+# def retrieve(self, request, pk=None):
+#     queryset = StreamPlatforms.objects.all()
+#     watchlist = get_object_or_404(queryset, pk=pk)
+#     serializer = StreamPlatformSerializer(watchlist)
+#     return Response(serializer.data)
+
+# def create(self, request):
+#     serializer = StreamPlatformSerializer(data=request.data)
+#     if serializer.is_valid():
+#         serializer.save()
+#         return Response(serializer.data)
+#     return Response(serializer.errors)
 
 
 class StreamPlatformListAV(generics.ListCreateAPIView):
-    queryset = StreamPlatform.objects.all()
+    queryset = StreamPlatforms.objects.all()
     serializer_class = StreamPlatformSerializer
 
+
 class StreamPlatformDetailAV(generics.RetrieveUpdateDestroyAPIView):
-    queryset = StreamPlatform.objects.all
+    queryset = StreamPlatforms.objects.all
     serializer_class = StreamPlatformSerializer
 
 
@@ -29,7 +57,6 @@ class StreamPlatformDetailAV(generics.RetrieveUpdateDestroyAPIView):
 #             serializer.save()
 #             return Response(serializer.data)
 #         return Response(serializer.errors)
-
 
 # class StreamPlatformDetailAV(APIView):
 #     def get(self, request, id):

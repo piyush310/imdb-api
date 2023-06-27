@@ -10,6 +10,7 @@ class WatchListAV(generics.ListCreateAPIView):
     queryset = WatchList.objects.all()
     serializer_class = WatchListSerializer
 
+
 class WatchDetailAV(generics.RetrieveUpdateDestroyAPIView):
     queryset = WatchList.objects.all()
     serializer_class = WatchListSerializer
@@ -27,7 +28,6 @@ class WatchDetailAV(generics.RetrieveUpdateDestroyAPIView):
 #             serializer.save()
 #             return Response(serializer.data)
 #         return Response(serializer.errors)
-
 
 # class WatchDetailAV(APIView):
 #     def get(self, request, pk):
