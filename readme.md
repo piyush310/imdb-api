@@ -26,40 +26,48 @@ This is a clone of the IMDb (Internet Movie Database) API built using Django and
    ```
 
 2. Create a virtual environment:
+
    ```shell
     python3 -m venv venv
    ```
 
 3. Activate the virtual environment:
+
    ```shell
     source venv/bin/activate
    ```
 
 4. Install the dependencies:
+
    ```shell
     pip install -r requirements.txt
    ```
 
 5. Setup the database:
 
-- Update the database settings in watchmate/settings.py to match your database configuration.
+- Update the database settings in imdb/settings.py to match your database configuration.
 
 - Apply migrations:
   ```shell
    python manage.py migrate
   ```
+
 6. Start the development server:
-  ```shell
-   python manage.py runserver
-  ```
-7. Access the API at 
-  ```shell
-    http://localhost:8000/docs
-    or
-    http://localhost:8000/redoc
-  ```
+
+```shell
+ python manage.py runserver
+```
+
+7. Access the API at
+
+```shell
+  http://localhost:8000/docs
+  or
+  http://localhost:8000/redoc
+```
 
 ## Contributing
+
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
 1. Fork the repository.
@@ -69,7 +77,9 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 5. Submit a pull request detailing your changes.
 
 ## Acknowledgements
+
 This project was inspired by the IMDb website and API.
 
 ## Contact
+
 If you have any questions or suggestions, feel free to
