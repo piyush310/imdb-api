@@ -2,3 +2,4 @@ venv/
 *.pyc
 *.sh
 migrations/
+.vscode/settings.json
