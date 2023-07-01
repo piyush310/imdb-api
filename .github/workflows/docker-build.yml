@@ -22,3 +22,8 @@ jobs:
           context: .
           push: true
           tags: your-dockerhub-username/image-name:latest
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+
