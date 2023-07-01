@@ -48,23 +48,49 @@ This is a clone of the IMDb (Internet Movie Database) API built using Django and
 - Update the database settings in imdb/settings.py to match your database configuration.
 
 - Apply migrations:
+
   ```shell
    python manage.py migrate
   ```
 
 6. Start the development server:
 
-```shell
- python manage.py runserver
-```
+   ```shell
+   python manage.py runserver
+   ```
 
 7. Access the API at
 
-```shell
-  http://localhost:8000/docs
-  or
-  http://localhost:8000/redoc
-```
+   ```shell
+   http://localhost:8000/docs
+   or
+   http://localhost:8000/redoc
+   ```
+## or 
+
+1. Clone the repository:
+
+   ```shell
+   git clone https://github.com/piyush310/imdb-api-clone.git
+   ```
+
+2. Docker build
+   ```shell
+   docker build --no-cache -t imdb-app .
+   ```
+
+3. Run docker image
+   ```
+   docker run -p 8000:8000 imdb-app
+   ```
+
+4. Access the API at
+
+   ```shell
+   http://localhost:8000/docs
+   or
+   http://localhost:8000/redoc
+   ```
 
 ## Contributing
 
