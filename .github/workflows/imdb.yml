@@ -1,4 +1,4 @@
-name: watchlist CI
+name: imdb CI
 
 on:
   push:
