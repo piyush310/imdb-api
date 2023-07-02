@@ -1,4 +1,5 @@
 from rest_framework import generics, mixins
+from rest_framework.exceptions import ValidationError
 from watchlist.models import Review, WatchList
 from watchlist.serializers import ReviewSerializer
 
@@ -21,10 +22,21 @@ class ReviewCreate(generics.CreateAPIView):
 
     serializer_class = ReviewSerializer
 
+    def get_queryset(self):
+        return Review.objects.all()
+
     def perform_create(self, serializer):
         pk = self.kwargs.get('pk')
         watchlist = WatchList.objects.get(pk=pk)
-        serializer.save(watchlist=watchlist)
+
+        user = self.request.user
+
+        review_query = Review.objects.filter(watchlist=watchlist,
+                                             review_user=user)
+        if review_query.exists():
+            raise ValidationError("You have already reviewed this Movie")
+
+        serializer.save(watchlist=watchlist, review_user=user)
 
 
 # class ReviewList(mixins.ListModelMixin, mixins.CreateModelMixin,

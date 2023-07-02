@@ -25,6 +25,7 @@ def health_check(request):
 urlpatterns = [
     path("", health_check, name="healthcheck"),
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
     path('watch/api/v1/', include('watchlist.urls')),
     path('swagger<format>/',
          schema_view.without_ui(cache_timeout=0),
@@ -34,5 +35,5 @@ urlpatterns = [
          name='schema-swagger-ui'),
     path('redoc/',
          schema_view.with_ui('redoc', cache_timeout=0),
-         name='schema-redoc'),
+         name='schema-redoc')
 ]
