@@ -12,7 +12,7 @@ urlpatterns = [
     path('movie/<int:pk>/', WatchDetailAV.as_view(), name='movie-detail'),
     path('', include(router.urls)),
     path('review/<int:pk>/', ReviewDetail.as_view(), name='review-detail'),
-    path('<int:pk>/reviews/', ReviewList.as_view(), name='review-list'),
+    path('movie/<int:pk>/reviews/', ReviewList.as_view(), name='review-list'),
     path('<int:pk>/review-create/',
          ReviewCreate.as_view(),
          name='review-create'),
