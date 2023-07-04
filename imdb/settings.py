@@ -68,6 +68,12 @@ WSGI_APPLICATION = 'imdb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticated',
+#     ]
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
