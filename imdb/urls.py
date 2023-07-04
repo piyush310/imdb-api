@@ -25,8 +25,8 @@ def health_check(request):
 urlpatterns = [
     path("", health_check, name="healthcheck"),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
-    path('watch/api/v1/', include('watchlist.urls')),
+    path('imdb/', include('watchlist.urls')),
+    path('auth/', include('authentication.urls')),
     path('swagger<format>/',
          schema_view.without_ui(cache_timeout=0),
          name='schema-json'),
@@ -36,4 +36,5 @@ urlpatterns = [
     path('redoc/',
          schema_view.with_ui('redoc', cache_timeout=0),
          name='schema-redoc')
+    # path('api-auth/', include('rest_framework.urls')), Custom authentication added
 ]

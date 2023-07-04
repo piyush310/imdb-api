@@ -3,3 +3,5 @@ venv/
 *.sh
 migrations/
 .vscode/settings.json
+.DS_Store
+__pycache__
