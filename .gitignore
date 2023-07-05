@@ -5,3 +5,4 @@ migrations/
 .vscode/settings.json
 .DS_Store
 __pycache__
+db.sqlite3

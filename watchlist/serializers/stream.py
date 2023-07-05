@@ -9,5 +9,4 @@ class StreamPlatformSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = StreamPlatform
-
         fields = "__all__"
