@@ -4,15 +4,15 @@ from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from watchlist.models import Review, WatchList
 from watchlist.serializers import ReviewSerializer
-from watchlist.permissions.permissions import (AdminOrReadOnly,
-                                               ReviewUserOrReadOnly)
+from watchlist.permissions.permissions import (IsAdminOrReadOnly,
+                                               IsReviewUserOrReadOnly)
 
 
 class ReviewList(generics.ListAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
-    permission_classes = [IsAuthenticated]
 
+    # permission_classes = [IsAuthenticated]
     # Able to see revie of particular movie
     # def get_queryset(self):
     #     pk = self.kwargs.get("pk")
@@ -22,12 +22,13 @@ class ReviewList(generics.ListAPIView):
 class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
-    permission_classes = [ReviewUserOrReadOnly]
+    permission_classes = [IsReviewUserOrReadOnly]
 
 
 class ReviewCreate(generics.CreateAPIView):
 
     serializer_class = ReviewSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Review.objects.all()

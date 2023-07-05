@@ -2,6 +2,7 @@ from rest_framework import status
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from watchlist.permissions.permissions import IsAdminOrReadOnly
 from watchlist.models import WatchList
 from watchlist.serializers import WatchListSerializer
 
@@ -9,11 +10,13 @@ from watchlist.serializers import WatchListSerializer
 class WatchListAV(generics.ListCreateAPIView):
     queryset = WatchList.objects.all()
     serializer_class = WatchListSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
 
 class WatchDetailAV(generics.RetrieveUpdateDestroyAPIView):
     queryset = WatchList.objects.all()
     serializer_class = WatchListSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
 
 """
