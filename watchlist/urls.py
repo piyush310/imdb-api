@@ -1,8 +1,7 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from watchlist.routes import (WatchListAV, WatchDetailAV, StreamPlatformListAV,
-                              StreamPlatformDetailAV, ReviewList, ReviewDetail,
-                              ReviewCreate, StreamPlatform)
+from watchlist.routes import (WatchListAV, WatchDetailAV, ReviewList,
+                              ReviewDetail, ReviewCreate, StreamPlatform)
 
 router = DefaultRouter()
 router.register("stream", StreamPlatform, basename="streamplatform")

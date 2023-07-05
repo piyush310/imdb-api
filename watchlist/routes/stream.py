@@ -3,6 +3,7 @@ from rest_framework import generics
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from watchlist.permissions.permissions import IsAdminOrReadOnly
 from watchlist.models import StreamPlatform as StreamPlatforms
 from watchlist.serializers import StreamPlatformSerializer
 from django.shortcuts import get_object_or_404
@@ -11,18 +12,21 @@ from django.shortcuts import get_object_or_404
 class StreamPlatform(viewsets.ModelViewSet):
     queryset = StreamPlatforms.objects.all()
     serializer_class = StreamPlatformSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
 
-class StreamPlatformListAV(generics.ListCreateAPIView):
+"""
+Other method to create view
+class StreamPlatformListAV(generics.ListAPIView):
     queryset = StreamPlatforms.objects.all()
     serializer_class = StreamPlatformSerializer
-
+    permission_classes = [IsAdminOrReadOnly]
 
 class StreamPlatformDetailAV(generics.RetrieveUpdateDestroyAPIView):
     queryset = StreamPlatforms.objects.all
     serializer_class = StreamPlatformSerializer
-
-
+    permission_classes = [IsAdminOrReadOnly]
+"""
 """
 Other method to create view
 class StreamPlatform(viewsets.ViewSet):
