@@ -2,7 +2,8 @@ from rest_framework import generics, status
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from authentication.serializers.user import RegistrationSerializer
-from authentication.models import user
+from rest_framework_simplejwt.tokens import RefreshToken
+# from authentication.models import user
 
 
 class Registration(generics.CreateAPIView):
@@ -18,8 +19,12 @@ class Registration(generics.CreateAPIView):
             'email': account.email
         }
         try:
-            token = Token.objects.get(user=account).key
-            data['token'] = token
+            # token = Token.objects.get(user=account).key
+            refresh = RefreshToken.for_user(account)
+            data['token'] = {
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+            }
         except Token.DoesNotExist:
             data['token'] = None
 
