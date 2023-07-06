@@ -9,14 +9,14 @@ from watchlist.permissions.permissions import (IsAdminOrReadOnly,
 
 
 class ReviewList(generics.ListAPIView):
-    queryset = Review.objects.all()
+    # queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+    permission_classes = [IsAuthenticated]
 
-    # permission_classes = [IsAuthenticated]
     # Able to see revie of particular movie
-    # def get_queryset(self):
-    #     pk = self.kwargs.get("pk")
-    #     return Review.objects.filter(watchlist=pk)
+    def get_queryset(self):
+        pk = self.kwargs.get("pk")
+        return Review.objects.filter(watchlist=pk)
 
 
 class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):

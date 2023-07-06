@@ -1,7 +1,5 @@
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
-# from rest_framework.decorators import api_view
-# from django.urls import re_path
 from django.urls import path, include
 from django.contrib import admin
 from django.http import JsonResponse
@@ -26,7 +24,7 @@ urlpatterns = [
     path("", health_check, name="healthcheck"),
     path('admin/', admin.site.urls),
     path('imdb/', include('watchlist.urls')),
-    path('auth/', include('authentication.urls')),
+    path('authentication/', include('authentication.urls')),
     path('swagger<format>/',
          schema_view.without_ui(cache_timeout=0),
          name='schema-json'),
@@ -36,5 +34,4 @@ urlpatterns = [
     path('redoc/',
          schema_view.with_ui('redoc', cache_timeout=0),
          name='schema-redoc')
-    # path('api-auth/', include('rest_framework.urls')), Custom authentication added
 ]

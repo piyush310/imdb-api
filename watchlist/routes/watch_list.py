@@ -7,7 +7,13 @@ from watchlist.models import WatchList
 from watchlist.serializers import WatchListSerializer
 
 
-class WatchListAV(generics.ListCreateAPIView):
+class WatchListAV(generics.ListAPIView):
+    queryset = WatchList.objects.all()
+    serializer_class = WatchListSerializer
+    permission_classes = [IsAdminOrReadOnly]
+
+
+class WatchListCreateAV(generics.CreateAPIView):
     queryset = WatchList.objects.all()
     serializer_class = WatchListSerializer
     permission_classes = [IsAdminOrReadOnly]
