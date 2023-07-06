@@ -4,7 +4,8 @@ This is a clone of the IMDb (Internet Movie Database) API built using Django and
 
 # Routes
 
-![image](https://github.com/piyush310/imdb-api/assets/39629176/ef35c09f-a56b-4147-9879-ab3f2c1dae67)
+![image](https://github.com/piyush310/imdb-api/assets/39629176/8dc71436-ab9d-4789-95ce-26d011e54640)
+
 
 
 
