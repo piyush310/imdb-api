@@ -2,6 +2,12 @@
 
 This is a clone of the IMDb (Internet Movie Database) API built using Django and Django REST Framework. It allows users to access movie and TV show information, including details about cast, crew, ratings, and more.
 
+# Routes
+
+![screencapture-127-0-0-1-8000-docs-2023-07-06-09_48_27](https://github.com/piyush310/imdb-api/assets/39629176/911ee438-29b8-4248-97e5-82758d35a13d)
+
+
+
 ## Features
 
 - **Search**: Users can search for movies and TV shows using various criteria such as title, genre, year, etc.
@@ -9,6 +15,7 @@ This is a clone of the IMDb (Internet Movie Database) API built using Django and
 - **Top Rated**: Users can view the top-rated movies and TV shows based on user ratings.
 - **User Ratings**: Registered users can rate movies and TV shows, and their ratings will contribute to the overall rating for each title.
 - **Authentication**: User registration and authentication system is implemented to allow secure access to certain features such as rating movies.
+- **swaggerUI**: Swagger UI integrated to use API routes easily
 
 ## Technologies Used
 
@@ -108,4 +115,4 @@ This project was inspired by the IMDb website and API.
 
 ## Contact
 
-If you have any questions or suggestions, feel free to
+If you have any questions or suggestions, feel free to contact
