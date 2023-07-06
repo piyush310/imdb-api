@@ -2,16 +2,36 @@ from rest_framework import generics, mixins
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
-from watchlist.models import Review, WatchList
+from rest_framework.throttling import (UserRateThrottle, AnonRateThrottle,
+                                       ScopedRateThrottle)
+from watchlist.models import (Review, WatchList)
 from watchlist.serializers import ReviewSerializer
+from watchlist.throttling.throttling import (ReviewCreateThrottle,
+                                             ReviewListThrottle)
 from watchlist.permissions.permissions import (IsAdminOrReadOnly,
                                                IsReviewUserOrReadOnly)
+from django_filters.rest_framework import DjangoFilterBackend
+
+
+class UserReview(generics.ListAPIView):
+    serializer_class = ReviewSerializer
+
+    # def get_queryset(self):
+    #     username = self.kwargs.get("username")
+    #     return Review.objects.filter(review_user__username=username)
+
+    def get_queryset(self):
+        username = self.request.query_params.get("username", None)
+        return Review.objects.filter(review_user__username=username)
 
 
 class ReviewList(generics.ListAPIView):
     # queryset = Review.objects.all()
     serializer_class = ReviewSerializer
     permission_classes = [IsAuthenticated]
+    throttle_classes = [ReviewListThrottle, AnonRateThrottle]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['review_user__username', 'active']
 
     # Able to see revie of particular movie
     def get_queryset(self):
@@ -23,12 +43,15 @@ class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
     permission_classes = [IsReviewUserOrReadOnly]
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'review-detail'
 
 
 class ReviewCreate(generics.CreateAPIView):
 
     serializer_class = ReviewSerializer
     permission_classes = [IsAuthenticated]
+    throttle_classes = [ReviewCreateThrottle]
 
     def get_queryset(self):
         return Review.objects.all()

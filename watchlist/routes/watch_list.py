@@ -3,14 +3,22 @@ from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from watchlist.permissions.permissions import IsAdminOrReadOnly
+from watchlist.pagination.pagination import (WatchListPagination,
+                                             WatchListLOPagination,
+                                             WatchListCPagination)
 from watchlist.models import WatchList
 from watchlist.serializers import WatchListSerializer
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 
 
 class WatchListAV(generics.ListAPIView):
     queryset = WatchList.objects.all()
     serializer_class = WatchListSerializer
+    pagination_class = WatchListCPagination
     permission_classes = [IsAdminOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title', 'platform__name']
 
 
 class WatchListCreateAV(generics.CreateAPIView):
