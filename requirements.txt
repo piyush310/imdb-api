@@ -5,7 +5,7 @@ django-rest-swagger==2.2.0
 Markdown==3.4.3
 mysqlclient==2.1.1
 PyMySQL==1.0.3
-pytz==2023.3
+pytz==2023.3.post1
 sqlparse==0.4.4
 drf-yasg==1.21.6
 djangorestframework-simplejwt==5.2.2
